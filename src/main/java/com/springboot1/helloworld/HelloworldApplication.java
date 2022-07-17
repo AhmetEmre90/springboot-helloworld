@@ -16,11 +16,8 @@ public class HelloworldApplication {
     }
 
     @GetMapping
-//    public String hello() {
-//        return "Hello World";
-//    }
-    public List<String> hello() {
-        return List.of("hello", "world");
+    public String hello() {
+        return "Hello World";
     }
 
 }
