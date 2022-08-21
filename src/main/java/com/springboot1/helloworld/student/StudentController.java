@@ -3,8 +3,6 @@ package com.springboot1.helloworld.student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
-import java.time.Month;
 import java.util.List;
 
 @RestController
@@ -26,5 +24,10 @@ public class StudentController {
     @PostMapping
     public void registerNewStudent(@RequestBody Student student) {
         studentService.addNewStudent(student);
+    }
+
+    @DeleteMapping(path = "{id}")
+    public void deleteStudent(@PathVariable("id") Long id) {
+        studentService.deleteStudent(id);
     }
 }

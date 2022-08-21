@@ -3,8 +3,6 @@ package com.springboot1.helloworld.student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.time.Month;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,4 +29,15 @@ public class StudentService {
 
         studentRepository.save(student);
     }
+
+    public void deleteStudent(Long id) {
+        Optional<Student> studentOptional = studentRepository.findById(id);
+
+        if (studentOptional.isEmpty()) {
+            throw new IllegalStateException("student doesn't exist");
+        }
+
+        studentRepository.deleteById(id);
+    }
+
 }
